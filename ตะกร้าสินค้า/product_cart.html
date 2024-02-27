@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart Example</title>
+    <style>
+        /* กำหนดขนาดของรูปภาพในตะกร้าสินค้า */
+        .cart-item img {
+            width: 100px; /* ปรับขนาดความกว้างตามต้องการ */
+            height: auto; /* ความสูงจะปรับอัตโนมัติตามอัตราส่วนของรูปภาพ */
+        }
+        
+        /* Flexbox เพื่อจัดวาง */
+        #container {
+            display: flex;
+            justify-content: space-between; /* จัดวางทางขวาและทางซ้าย */
+        }
+
+        #products {
+            width: 70%; /* กำหนดขนาดของพื้นที่สำหรับสินค้า */
+            display: flex;
+            flex-wrap: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ */
+            overflow-x: auto; /* เพิ่มแถบเลื่อนแนวนอนเมื่อมีสินค้ามากเกินไป */
+        }
+
+        .product {
+            flex: 0 0 auto; /* ไม่ยืดขยายสินค้าเมื่อมีขนาดของเนื้อที่ไม่เพียงพอ */
+            margin-right: 10px; /* ระยะห่างระหว่างสินค้า */
+        }
+
+        #cart {
+            width: 30%; /* กำหนดขนาดของพื้นที่สำหรับตะกร้าสินค้า */
+        }
+
+        /* สไตล์ของรูปภาพตะกร้า */
+        #cart-image {
+            width: 100px; /* ปรับขนาดของรูปภาพตะกร้า */
+            height: auto; /* ปรับอัตโนมัติตามอัตราส่วนของรูปภาพ */
+        }
+        #Logo-image {
+            width: 150px; /* ปรับขนาดของรูปภาพโลโก้ */
+            height: auto; /* ปรับอัตโนมัติตามอัตราส่วนของรูปภาพ */
+        }
+
+        /* กำหนดขนาดรูปในสินค้า */
+        .product img {
+            width: 150px; /* ปรับขนาดความกว้างตามต้องการ */
+            height: auto; /* ความสูงจะปรับอัตโนมัติตามอัตราส่วนของรูปภาพ */
+            
+        }
+
+        /* สไตล์ของปุ่ม Add to Cart */
+        .add-to-cart {
+            padding: 10px 30px; /* ขนาดของปุ่ม */
+            font-size: 16px; /* ขนาดตัวอักษร */
+            background-color: #d5a5ec; /* สีพื้นหลัง */
+            color: white; /* สีข้อความ */
+            border: none; /* ไม่มีเส้นขอบ */
+            border-radius: 5px; /* ทำขอบเป็นรูปวงกลม */
+            cursor: pointer; /* แสดงเครื่องหมายมือ */
+            transition: background-color 0.3s; /* เพื่อให้การเปลี่ยนแปลงสีพื้นหลังมีการเปลี่ยนแปลงเรียบร้อย */
+        }
+
+        /* เมื่อโฮเวอร์เพื่อปรับสีพื้นหลังของปุ่ม */
+        .add-to-cart:hover {
+            background-color: #dfda55;
+        }
+        .remove-from-cart {
+            padding: 10px 30px; /* ขนาดของปุ่ม */
+            font-size: 16px; /* ขนาดตัวอักษร */
+            background-color: #d5a5ec; /* สีพื้นหลัง */
+            color: white; /* สีข้อความ */
+            border: none; /* ไม่มีเส้นขอบ */
+            border-radius: 5px; /* ทำขอบเป็นรูปวงกลม */
+            cursor: pointer; /* แสดงเครื่องหมายมือ */
+            transition: background-color 0.3s; /* เพื่อให้การเปลี่ยนแปลงสีพื้นหลังมีการเปลี่ยนแปลงเรียบร้อย */
+
+        }
+        .remove-from-cart:hover {
+            background-color: #dfda55;
+        }
+    </style>
+</head>
+<body>
+    <div id="Logo">
+        <img id="Logo-image" src="logo1.png" alt="Logo" > 
+      
+    </div>
+    <div id="container">
+        <div id="products">
+            <div class="product" data-product-id="1" data-price="10" data-image="burgundy-rose-600x600.jpg">
+                <h3>Rose - ฿10</h3>
+                <img src="burgundy-rose-600x600.jpg" alt="Rose">
+                <br><br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-product-id="2" data-price="20" data-image="pink-4.jpg">
+                <h3>Tulip - ฿20</h3>
+                <img src="pink-4.jpg" alt="Tulip">
+                <br><br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-product-id="3" data-price="20" data-image="peony_soft_pink.jpg">
+                <h3>Peony - ฿20</h3>
+                <img src="peony_soft_pink.jpg" alt="Peony">
+                <br><br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div id="cart">
+            <img id="cart-image" src="removecart.png" alt="Shopping Cart">
+            <div id="cart-items">
+              
+                <p>No items in cart.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>
